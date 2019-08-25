@@ -19,7 +19,7 @@ export class RecipeService {
             'https://ichef.bbci.co.uk/news/320/cpsprodpb/27C9/production/_103158101_tha.jpg',
             [
                 new Ingredient('rice', 1),
-                new Ingredient('chicken', 4)
+                new Ingredient('chicken', 5)
             ])
     ];
 
