@@ -13,7 +13,7 @@ export class RecipeService {
             'https://ichef.bbci.co.uk/news/320/cpsprodpb/27C9/production/_103158101_tha.jpg',
             [
                 new Ingredient('Meat', 1),
-                new Ingredient('French Fries', 20)
+                new Ingredient('French Fries', 23)
             ]),
         new Recipe('Another Recipe', 'This is a test',
             'https://ichef.bbci.co.uk/news/320/cpsprodpb/27C9/production/_103158101_tha.jpg',
