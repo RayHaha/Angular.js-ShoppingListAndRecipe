@@ -28,6 +28,7 @@ export class RecipeService {
     }
 
     getRecipes() {
+        
         // get the copy of recipes
         return this.recipes.slice();
     }
