@@ -31,10 +31,11 @@ export class RecipeService {
 
         // get the copy of recipes
         return this.recipes.slice();
-        
+
     }
 
     addIngredientsToShoppingList(ingredients: Ingredient[]){
+        
         this.slService.addIngredients(ingredients);
     }
 
