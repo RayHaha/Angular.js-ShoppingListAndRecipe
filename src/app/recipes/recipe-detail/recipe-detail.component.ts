@@ -8,6 +8,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css']
 })
+
 export class RecipeDetailComponent implements OnInit {
   //@Input() recipe: Recipe;
   recipe: Recipe;
@@ -38,7 +39,7 @@ export class RecipeDetailComponent implements OnInit {
     
     this.router.navigate(['edit'], {relativeTo: this.route});
     //this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
-    
+
   }
 
 }
