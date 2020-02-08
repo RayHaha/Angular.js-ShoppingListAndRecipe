@@ -6,6 +6,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   templateUrl: './recipe-edit.component.html'
 })
 export class RecipeEditComponent implements OnInit {
+  
   id: number;
   editMode = false;
 
