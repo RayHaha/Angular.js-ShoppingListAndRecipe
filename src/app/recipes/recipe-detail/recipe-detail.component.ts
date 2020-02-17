@@ -10,6 +10,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 
 export class RecipeDetailComponent implements OnInit {
+  
   //@Input() recipe: Recipe;
   recipe: Recipe;
   id: number;
