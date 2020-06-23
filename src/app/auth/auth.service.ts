@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
-import { throwError, Subject } from 'rxjs';
+import { throwError, Subject, BehaviorSubject } from 'rxjs';
 import { User } from './user.model';
 
 export interface AuthResponseData{
@@ -20,9 +20,7 @@ export class AuthService {
     constructor(private http: HttpClient){
 
     }
-    
-    user = new Subject<User>();
-
+    user = new BehaviorSubject<User>(null);
     signup(email: string, password: string){
         console.log(email, password);
         return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDcMFC4JAx2TW6e9HTWTi6EUGwj-6xWKQY',
@@ -35,7 +33,6 @@ export class AuthService {
             // resData.expiresIn is converted to a number by a an extra plus in front of it
         }));
     }
-
     login(email: string, password: string){
         
         return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDcMFC4JAx2TW6e9HTWTi6EUGwj-6xWKQY',{
@@ -47,7 +44,6 @@ export class AuthService {
             // resData.expiresIn is converted to a number by a an extra plus in front of it
         }));
     }
-
     private handleAuthentication(email: string, userId: string, token: string, expiresIn: number){
         const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
             // getTime is the timestamp in milliseconds, expiresIn is in second
@@ -55,7 +51,6 @@ export class AuthService {
             const user = new User(email, userId, token, expirationDate);
             this.user.next(user);
     }
-
     private handleError(errorRes: HttpErrorResponse){
         let errorMessage = 'An unknown error occurred!';
         if(!errorRes.error || !errorRes.error.error){
