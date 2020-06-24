@@ -19,6 +19,7 @@ export class DataStorageService{
             console.log(response);
         });
     }
+    
     fetchRecipes(){
         return this.authService.user.pipe(
             take(1),
