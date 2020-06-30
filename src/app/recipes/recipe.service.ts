@@ -33,6 +33,7 @@ export class RecipeService {
         this.recipes = recipes;
         this.recipesChanged.next(this.recipes.slice());
     }
+    
     getRecipes() {
         // get the copy of recipes
         return this.recipes.slice();
