@@ -38,6 +38,7 @@ export class RecipeService {
         // get the copy of recipes
         return this.recipes.slice();
     }
+    
     getRecipe(index: number){
         return this.recipes[index];
     }
