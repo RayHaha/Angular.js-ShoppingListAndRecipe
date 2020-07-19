@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError, Subject, BehaviorSubject } from 'rxjs';
 import { User } from './user.model';
+import { Router } from '@angular/router';
 
 export interface AuthResponseData{
   kind: string;
@@ -17,7 +18,7 @@ export interface AuthResponseData{
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
-    constructor(private http: HttpClient){
+    constructor(private http: HttpClient, private router: Router){
 
     }
     user = new BehaviorSubject<User>(null);
@@ -43,6 +44,10 @@ export class AuthService {
             this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
             // resData.expiresIn is converted to a number by a an extra plus in front of it
         }));
+    }
+    logout(){
+        this.user.next(null);
+        this.router.navigate(['/auth']);
     }
     private handleAuthentication(email: string, userId: string, token: string, expiresIn: number){
         const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
