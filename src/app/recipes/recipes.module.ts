@@ -21,15 +21,7 @@ import { RecipesRoutingModule } from './recipes-routing.module';
     ],/** BrowserModule must only to be used once in appmodule. It does more than just ngIf and ngFor
     it does some general application start up work that only has to run once.
     Instead of BrowserModule, use common module in all other place where you want to get access to ngIf and ngFor  */
-    imports: [RouterModule, CommonModule, ReactiveFormsModule, RecipesRoutingModule],
-    exports: [
-        RecipesComponent,
-        RecipeListComponent,
-        RecipeDetailComponent,
-        RecipeItemComponent,
-        RecipeStartComponent,
-        RecipeEditComponent
-    ]
+    imports: [RouterModule, CommonModule, ReactiveFormsModule, RecipesRoutingModule]
 })
 export class RecipesModule{
 
